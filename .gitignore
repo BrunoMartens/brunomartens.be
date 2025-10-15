@@ -1,0 +1,10 @@
+.vs
+.vscode
+.angular
+.nx
+node_modules
+dist
+out-tsc
+bin
+obj
+*.csproj.user

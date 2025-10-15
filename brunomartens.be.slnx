@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="brunomartens.portal/brunomartens.portal.csproj" />
+  <Project Path="brunomartens.yarp/brunomartens.yarp.csproj" />
+</Solution>
