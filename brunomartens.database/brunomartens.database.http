@@ -1,0 +1,6 @@
+@brunomartens.database_HostAddress = http://localhost:5014
+
+GET {{brunomartens.database_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,4 +1,5 @@
 <Solution>
-  <Project Path="brunomartens.portal/brunomartens.portal.csproj" />
+  <Project Path="brunomartens.database/brunomartens.database.csproj" Id="8e5b9988-c2e6-45d3-948a-1ee3aa185fd7" />
+  <Project Path="brunomartens.web/brunomartens.web.csproj" Id="c6e07f40-d537-4148-9880-65cfb4d47e6b" />
   <Project Path="brunomartens.yarp/brunomartens.yarp.csproj" />
 </Solution>
