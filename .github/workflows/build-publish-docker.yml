@@ -38,6 +38,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: brunomartens.amgular/Dockerfile
+          file: brunomartens.angular/Dockerfile
           push: true
           tags: brunomartens/portal:latest
