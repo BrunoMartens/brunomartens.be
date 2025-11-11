@@ -1,5 +1,6 @@
 name: build and publish to Docker hub
 on:
+  workflow_dispatch:
   push:
     branches: [ "main" ]
   pull_request:
