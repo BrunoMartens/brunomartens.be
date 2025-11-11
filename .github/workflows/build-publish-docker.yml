@@ -1,0 +1,42 @@
+name: build and publish to Docker hub
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out
+        uses: actions/checkout@v4
+
+      - name: login docker
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: build yarp
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: brunomartens.yarp/Dockerfile
+          push: true
+          tags: brunomartens/yarp:latest
+
+      - name: build api
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: brunomartens.web/Dockerfile
+          push: true
+          tags: brunomartens/api:latest
+
+      - name: build portal
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: brunomartens.amgular/Dockerfile
+          push: true
+          tags: brunomartens/portal:latest
