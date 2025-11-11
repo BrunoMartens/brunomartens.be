@@ -2,6 +2,22 @@ using Yarp.ReverseProxy.Transforms;
 
 var builder = WebApplication.CreateBuilder(args);
 
+if(!builder.Environment.IsDevelopment())
+{
+    builder.Services.AddLettuceEncrypt();
+
+    builder.WebHost.ConfigureKestrel(kestrel =>
+    {
+        kestrel.ListenAnyIP(443, portOptions =>
+        {
+            portOptions.UseHttps(h =>
+            {
+                h.UseLettuceEncrypt(kestrel.ApplicationServices);
+            });
+        });
+    });
+}
+
 builder.Services.AddReverseProxy()
     .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
     /*.AddTransforms(transformBuilderContext =>
@@ -22,6 +38,5 @@ builder.Services.AddReverseProxy()
 var app = builder.Build();
 
 app.MapReverseProxy();
-//app.MapGet("/", () => "Hello World!");
 
 app.Run();
