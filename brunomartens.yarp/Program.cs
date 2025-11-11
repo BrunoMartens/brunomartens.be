@@ -8,7 +8,7 @@ if(!builder.Environment.IsDevelopment())
 
     builder.WebHost.ConfigureKestrel(kestrel =>
     {
-        kestrel.ListenAnyIP(443, portOptions =>
+        kestrel.ListenAnyIP(8081, portOptions =>
         {
             portOptions.UseHttps(h =>
             {
